@@ -1,0 +1,32 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(inkscape:*)",
+      "Bash(python3:*)",
+      "Bash(node:*)",
+      "Bash(npm list:*)",
+      "Bash(pip install:*)",
+      "Bash(python:*)",
+      "Bash(python.exe:*)",
+      "Bash(npx tsc:*)",
+      "Bash(xargs grep:*)",
+      "Bash(du:*)",
+      "Bash(magick:*)",
+      "Bash(pip show:*)",
+      "Bash(sed:*)",
+      "WebSearch",
+      "WebFetch(domain:www.gallup.com)",
+      "WebFetch(domain:coachingfederation.org)",
+      "WebFetch(domain:www.carnegiefoundation.org)",
+      "WebFetch(domain:www.nationalsoftskills.org)",
+      "Bash(find /c/users/franz/hypnovital/hypnovital-homepage -maxdepth 2 -name \"next.config.*\" -o -name \"robots.*\" -o -name \"sitemap.*\" 2>/dev/null | head -20)",
+      "Bash(grep -r \"TODO\\\\|FIXME\\\\|XXX\\\\|HACK\\\\|bookingUrl\\\\|placeholders\\\\|TODO:\" \"C:\\\\Users\\\\franz\\\\hypnovital\\\\hypnovital-homepage/app\" --include=\"*.ts\" --include=\"*.tsx\" 2>/dev/null | head -20)",
+      "Bash(grep -r \"TODO\\\\|FIXME\\\\|XXX\\\\|HACK\\\\|bookingUrl\\\\|placeholders\" \"C:\\\\Users\\\\franz\\\\hypnovital\\\\hypnovital-homepage/components\" --include=\"*.ts\" --include=\"*.tsx\" 2>/dev/null | head -20)",
+      "Bash(grep -r \"localhost\\\\|example\\\\|PLACEHOLDER\\\\|undefined\" \"C:\\\\Users\\\\franz\\\\hypnovital\\\\hypnovital-homepage/app\" --include=\"*.ts\" --include=\"*.tsx\" 2>/dev/null | grep -i \"url\\\\|email\\\\|key\\\\|secret\" | head -20)",
+      "Bash(grep -r \"process.env\\\\|TODO\\\\|FIXME\\\\|bookingUrl\" \"C:\\\\Users\\\\franz\\\\hypnovital\\\\hypnovital-homepage/lib\" --include=\"*.ts\" 2>/dev/null | head -30)",
+      "Bash(grep -r \"window\\\\.\\\\|document\\\\.\" \"C:\\\\Users\\\\franz\\\\hypnovital\\\\hypnovital-homepage/app\" --include=\"*.tsx\" --include=\"*.ts\" 2>/dev/null | head -15)",
+      "Bash(grep -r \"api.stripe\\\\|api.resend\\\\|supabase\" \"C:\\\\Users\\\\franz\\\\hypnovital\\\\hypnovital-homepage\" --include=\"*.ts\" --include=\"*.tsx\" 2>/dev/null | grep -v node_modules | head -10)",
+      "Bash(cd \"C:/Users/franz/hypnovital/hypnovital-homepage\" && npm run build 2>&1)"
+    ]
+  }
+}
