@@ -8,18 +8,11 @@ type FormData = {
   anliegen: string
   ziel: string
   name: string
-  sprache: string
-  stimme: string
-  belastung: string
-  zielgefuehl: string
-  atmosphaere: string
-  erfahrung: string
-  nutzung: string
   sicherheit: string[]
   bestaetigung: boolean
 }
 
-const TOTAL_STEPS = 5
+const TOTAL_STEPS = 3
 
 const ANLIEGEN_OPTIONS = [
   'Besser schlafen',
@@ -35,14 +28,6 @@ const ANLIEGEN_OPTIONS = [
   'Anderes',
 ]
 
-const ATMOSPHAERE_OPTIONS = ['Strand / Meer', 'Wald / Natur', 'Berge / Ruhe', 'Licht / Wärme', 'Anderes']
-const ERFAHRUNG_OPTIONS = ['Ja', 'Nein', 'Ein wenig']
-const NUTZUNG_OPTIONS = [
-  'Abends / zum Einschlafen',
-  'Tagsüber / zur Entspannung',
-  'Vor stressigen Situationen',
-  'Flexibel',
-]
 const SICHERHEIT_OPTIONS = [
   'diagnostizierte psychische Erkrankung',
   'Epilepsie oder Anfallsleiden',
@@ -51,19 +36,12 @@ const SICHERHEIT_OPTIONS = [
   'nichts davon',
 ]
 
-const STEP_LABELS = ['Anliegen', 'Persönliches', 'Situation', 'Erfahrung', 'Sicherheit']
+const STEP_LABELS = ['Anliegen', 'Persönliches', 'Sicherheit']
 
 const initialData: FormData = {
   anliegen: '',
   ziel: '',
   name: '',
-  sprache: 'Deutsch',
-  stimme: 'Weiblich',
-  belastung: '',
-  zielgefuehl: '',
-  atmosphaere: '',
-  erfahrung: '',
-  nutzung: '',
   sicherheit: [],
   bestaetigung: false,
 }
@@ -156,16 +134,8 @@ export default function PersonalAudioSection() {
       case 1:
         return !!data.anliegen && data.ziel.trim().length >= 5
       case 2:
-        return !!data.name.trim() && !!data.sprache && !!data.stimme
+        return !!data.name.trim()
       case 3:
-        return (
-          data.belastung.trim().length >= 5 &&
-          data.zielgefuehl.trim().length >= 5 &&
-          !!data.atmosphaere
-        )
-      case 4:
-        return !!data.erfahrung && !!data.nutzung
-      case 5:
         return data.sicherheit.length > 0 && data.bestaetigung
       default:
         return false
@@ -237,15 +207,8 @@ export default function PersonalAudioSection() {
           <div className="space-y-0 divide-y divide-gray-100 border border-gray-100 rounded-xl overflow-hidden">
             {[
               { label: 'Anliegen', value: data.anliegen },
-              { label: 'Ziel', value: data.ziel },
+              { label: 'Dein Ziel', value: data.ziel },
               { label: 'Ansprache im Audio', value: data.name },
-              { label: 'Sprache', value: data.sprache },
-              { label: 'Stimme', value: data.stimme },
-              { label: 'Atmosphäre', value: data.atmosphaere },
-              { label: 'Hypnose-Erfahrung', value: data.erfahrung },
-              { label: 'Nutzung', value: data.nutzung },
-              { label: 'Aktuelle Belastung', value: data.belastung },
-              { label: 'Gewünschtes Gefühl', value: data.zielgefuehl },
             ].map(({ label, value }) => (
               <div key={label} className="px-4 py-3 bg-white">
                 <p className="text-xs text-gray-400 uppercase tracking-wider font-semibold mb-0.5">
@@ -318,12 +281,12 @@ export default function PersonalAudioSection() {
               </label>
               <textarea
                 value={data.ziel}
-                onChange={(e) => setData((d) => ({ ...d, ziel: e.target.value.slice(0, 200) }))}
-                placeholder="Beschreibe dein konkretes Ziel…"
-                rows={3}
+                onChange={(e) => setData((d) => ({ ...d, ziel: e.target.value.slice(0, 500) }))}
+                placeholder="Beschreibe dein Ziel und was dich aktuell belastet…"
+                rows={5}
                 className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-primary resize-none"
               />
-              <p className="text-xs text-gray-400 text-right mt-1">{data.ziel.length}/200</p>
+              <p className="text-xs text-gray-400 text-right mt-1">{data.ziel.length}/500</p>
             </div>
           </div>
         )
@@ -343,129 +306,10 @@ export default function PersonalAudioSection() {
                 className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-primary"
               />
             </div>
-            <div>
-              <p className="text-sm font-semibold text-gray-800 mb-3">
-                Welche Sprache soll das Audio haben?
-              </p>
-              <div className="space-y-2">
-                {['Deutsch', 'Englisch', 'Französisch'].map((opt) => (
-                  <RadioOption
-                    key={opt}
-                    label={opt}
-                    selected={data.sprache === opt}
-                    onClick={() => setData((d) => ({ ...d, sprache: opt }))}
-                  />
-                ))}
-              </div>
-            </div>
-            <div>
-              <p className="text-sm font-semibold text-gray-800 mb-3">
-                Welche Stimme passt besser?
-              </p>
-              <div className="space-y-2">
-                {['Weiblich', 'Männlich', 'Neutral'].map((opt) => (
-                  <RadioOption
-                    key={opt}
-                    label={opt}
-                    selected={data.stimme === opt}
-                    onClick={() => setData((d) => ({ ...d, stimme: opt }))}
-                  />
-                ))}
-              </div>
-            </div>
           </div>
         )
 
       case 3:
-        return (
-          <div className="space-y-6">
-            <div>
-              <label className="block text-sm font-semibold text-gray-800 mb-2">
-                Was belastet dich aktuell am meisten?
-              </label>
-              <textarea
-                value={data.belastung}
-                onChange={(e) =>
-                  setData((d) => ({ ...d, belastung: e.target.value.slice(0, 300) }))
-                }
-                placeholder="Beschreibe deine aktuelle Situation…"
-                rows={4}
-                className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-primary resize-none"
-              />
-              <p className="text-xs text-gray-400 text-right mt-1">{data.belastung.length}/300</p>
-            </div>
-            <div>
-              <label className="block text-sm font-semibold text-gray-800 mb-2">
-                Wie möchtest du dich stattdessen fühlen?
-              </label>
-              <textarea
-                value={data.zielgefuehl}
-                onChange={(e) =>
-                  setData((d) => ({ ...d, zielgefuehl: e.target.value.slice(0, 200) }))
-                }
-                placeholder="Beschreibe das gewünschte Gefühl…"
-                rows={3}
-                className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-primary resize-none"
-              />
-              <p className="text-xs text-gray-400 text-right mt-1">
-                {data.zielgefuehl.length}/200
-              </p>
-            </div>
-            <div>
-              <p className="text-sm font-semibold text-gray-800 mb-3">
-                Welche Atmosphäre hilft dir zu entspannen?
-              </p>
-              <div className="space-y-2">
-                {ATMOSPHAERE_OPTIONS.map((opt) => (
-                  <RadioOption
-                    key={opt}
-                    label={opt}
-                    selected={data.atmosphaere === opt}
-                    onClick={() => setData((d) => ({ ...d, atmosphaere: opt }))}
-                  />
-                ))}
-              </div>
-            </div>
-          </div>
-        )
-
-      case 4:
-        return (
-          <div className="space-y-6">
-            <div>
-              <p className="text-sm font-semibold text-gray-800 mb-3">
-                Hast du Erfahrung mit Hypnose oder Meditation?
-              </p>
-              <div className="space-y-2">
-                {ERFAHRUNG_OPTIONS.map((opt) => (
-                  <RadioOption
-                    key={opt}
-                    label={opt}
-                    selected={data.erfahrung === opt}
-                    onClick={() => setData((d) => ({ ...d, erfahrung: opt }))}
-                  />
-                ))}
-              </div>
-            </div>
-            <div>
-              <p className="text-sm font-semibold text-gray-800 mb-3">
-                Wann möchtest du das Audio hauptsächlich hören?
-              </p>
-              <div className="space-y-2">
-                {NUTZUNG_OPTIONS.map((opt) => (
-                  <RadioOption
-                    key={opt}
-                    label={opt}
-                    selected={data.nutzung === opt}
-                    onClick={() => setData((d) => ({ ...d, nutzung: opt }))}
-                  />
-                ))}
-              </div>
-            </div>
-          </div>
-        )
-
-      case 5:
         return (
           <div className="space-y-6">
             <div>
@@ -537,7 +381,7 @@ export default function PersonalAudioSection() {
                 <ul className="space-y-3 mb-6">
                   {[
                     { title: 'Exklusiv für dich erstellt', desc: 'Wir produzieren dein Audio einmalig – nur für dich, nicht für tausend andere.' },
-                    { title: 'Auf deine Bedürfnisse abgestimmt', desc: 'Dein Ziel, dein Anliegen, deine Sprache, deine Atmosphäre – du bestimmst alles.' },
+                    { title: 'Auf deine Bedürfnisse abgestimmt', desc: 'Dein Ziel, dein Anliegen, deine persönliche Situation – du bestimmst alles.' },
                     { title: 'Tiefere Wirkung als Standard-Audios', desc: 'Weil dein Unterbewusstsein auf persönlich zugeschnittene Inhalte stärker reagiert.' },
                     { title: 'Unbegrenzt nutzbar', desc: 'Einmal erstellt, gehört das Audio dir – hör es so oft du willst.' },
                   ].map((item) => (

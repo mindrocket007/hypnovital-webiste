@@ -39,17 +39,6 @@ export async function POST(req: NextRequest) {
           <hr>
           <h3>Persönliches</h3>
           <p><strong>Name / Ansprache:</strong> ${data.name}</p>
-          <p><strong>Sprache:</strong> ${data.sprache}</p>
-          <p><strong>Stimme:</strong> ${data.stimme}</p>
-          <hr>
-          <h3>Situation</h3>
-          <p><strong>Aktuelle Belastung:</strong> ${data.belastung}</p>
-          <p><strong>Gewünschtes Gefühl:</strong> ${data.zielgefuehl}</p>
-          <p><strong>Atmosphäre:</strong> ${data.atmosphaere}</p>
-          <hr>
-          <h3>Erfahrung & Nutzung</h3>
-          <p><strong>Hypnose-Erfahrung:</strong> ${data.erfahrung}</p>
-          <p><strong>Hauptnutzung:</strong> ${data.nutzung}</p>
           <hr>
           <h3>Sicherheitsangaben</h3>
           <p>${(data.sicherheit ?? []).join(', ') || '–'}</p>
@@ -69,11 +58,7 @@ export async function POST(req: NextRequest) {
         product_name: 'Mein persönliches Hypnose-Audio',
         customer_name: tr(data.name, 100),
         anliegen: tr(data.anliegen, 100),
-        ziel: tr(data.ziel, 200),
-        sprache: tr(data.sprache, 50),
-        stimme: tr(data.stimme, 50),
-        nutzung: tr(data.nutzung, 100),
-        erfahrung: tr(data.erfahrung, 50),
+        ziel: tr(data.ziel, 500),
       },
       billing_address_collection: 'auto',
       success_url: `${baseUrl}/success?t=audio&rid=${requestId}`,
