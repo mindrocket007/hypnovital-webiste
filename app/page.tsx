@@ -4,7 +4,7 @@ import { ArrowRight, Users, Building2, GraduationCap, Shield, Brain, Network, St
 import { LinkButton } from '@/components/ui/Button'
 import SectionWrapper from '@/components/ui/SectionWrapper'
 import ProductCard from '@/components/shop/ProductCard'
-import { products } from '@/lib/data'
+import { products, coaches } from '@/lib/data'
 
 export const metadata: Metadata = {
   title: 'hypnovital – Mentale Veränderung beginnt im Unterbewusstsein',
@@ -32,6 +32,7 @@ export const metadata: Metadata = {
 
 export default function HomePage() {
   const featuredProducts = products.filter((p) => p.isActive).slice(0, 3)
+  const activeCoaches = coaches.filter((c) => c.isActive)
 
   return (
     <>
@@ -326,21 +327,16 @@ export default function HomePage() {
         </div>
 
         {/* Mini Coach-Karten */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-12">
-          {[
-            { name: 'Franz Ruchti', city: 'Alpnach', spec: 'Stressmanagement' },
-            { name: 'Anna Müller', city: 'Bern', spec: 'Entspannung' },
-            { name: 'Markus Weber', city: 'Basel', spec: 'Führungskräfte' },
-            { name: 'Sarah Klein', city: 'München', spec: 'Lampenfieber' },
-          ].map((c) => (
-            <div key={c.name} className="bg-white rounded-xl p-4 flex items-center gap-3">
+        <div className={`grid grid-cols-1 sm:grid-cols-2 ${activeCoaches.length > 2 ? 'lg:grid-cols-4' : ''} gap-4 mt-12`}>
+          {activeCoaches.map((c) => (
+            <div key={c.id} className="bg-white rounded-xl p-4 flex items-center gap-3">
               <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
                 <span className="font-bold text-primary text-sm">{c.name.charAt(0)}</span>
               </div>
               <div>
                 <p className="font-semibold text-sm text-gray-900">{c.name}</p>
                 <p className="text-xs text-gray-400">
-                  {c.city} · {c.spec}
+                  {c.city} · {c.specializations[0]}
                 </p>
               </div>
             </div>
