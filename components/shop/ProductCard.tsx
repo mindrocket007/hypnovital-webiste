@@ -36,15 +36,21 @@ export default function ProductCard({
   const audioRef = useRef<HTMLAudioElement>(null)
   const previewSrc = PREVIEW_MAP[slug]
 
-  function togglePlay() {
+  async function togglePlay() {
     const audio = audioRef.current
     if (!audio) return
     if (isPlaying) {
       audio.pause()
+      setIsPlaying(false)
     } else {
-      audio.play()
+      try {
+        await audio.play()
+        setIsPlaying(true)
+      } catch (err) {
+        console.error('Audio play failed:', err)
+        setIsPlaying(false)
+      }
     }
-    setIsPlaying(!isPlaying)
   }
 
   function handleTimeUpdate() {

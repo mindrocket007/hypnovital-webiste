@@ -66,7 +66,7 @@ export const products: Product[] = [
     category: 'Entspannung',
     tags: ['entspannung', 'stress', 'stressabbau', 'burnout', 'ruhe', 'regeneration', 'tiefenentspannung', 'audio'],
     benefits: ['Stressabbau', 'Schlafqualität verbessern', 'Regeneration fördern'],
-    isActive: true,
+    isActive: false,
   },
   {
     id: 'selbstvertrauen',
@@ -82,12 +82,12 @@ export const products: Product[] = [
     category: 'Persönlichkeit',
     tags: ['selbstvertrauen', 'selbstwert', 'blockaden', 'sicherheit', 'persönlichkeit', 'mut', 'audio'],
     benefits: ['Selbstwert stärken', 'Innere Sicherheit aufbauen', 'Blockaden lösen'],
-    isActive: true,
+    isActive: false,
   },
   {
     id: 'lampenfieber',
     slug: 'lampenfieber',
-    title: 'Lampenfieber lösen',
+    title: 'Lampenfieber besiegen',
     shortDescription:
       'Überwinde Auftrittsangst und Nervosität und tritt selbstsicher und klar vor jedes Publikum.',
     price: 2990,
@@ -114,7 +114,7 @@ export const products: Product[] = [
     category: 'Wohlbefinden',
     tags: ['körperwahrnehmung', 'intimität', 'kontrolle', 'wohlbefinden', 'sexualität', 'audio'],
     benefits: ['Körperbewusstsein stärken', 'Kontrolle entwickeln', 'Erleben intensivieren'],
-    isActive: true,
+    isActive: false,
   },
   {
     id: 'tief-schlafen',
@@ -130,7 +130,7 @@ export const products: Product[] = [
     category: 'Entspannung',
     tags: ['schlaf', 'schlafen', 'einschlafen', 'schlafstörung', 'tiefschlaf', 'erholung', 'entspannung', 'audio'],
     benefits: ['Einschlafen erleichtern', 'Schlafqualität verbessern', 'Erholsamen Tiefschlaf fördern'],
-    isActive: true,
+    isActive: false,
   },
   {
     id: 'gedanken-beruhigen',
@@ -146,7 +146,7 @@ export const products: Product[] = [
     category: 'Entspannung',
     tags: ['gedanken', 'grübeln', 'stress', 'ruhe', 'entspannung', 'klarheit', 'overthinking', 'audio'],
     benefits: ['Gedankenkarussell stoppen', 'Innere Ruhe finden', 'Mentale Klarheit gewinnen'],
-    isActive: true,
+    isActive: false,
   },
   {
     id: 'selbstliebe-entwickeln',
@@ -162,7 +162,7 @@ export const products: Product[] = [
     category: 'Persönlichkeit',
     tags: ['selbstliebe', 'selbstakzeptanz', 'selbstwert', 'persönlichkeit', 'blockaden', 'wertschätzung', 'audio'],
     benefits: ['Selbstakzeptanz stärken', 'Inneren Kritiker beruhigen', 'Gesundes Selbstbild aufbauen'],
-    isActive: true,
+    isActive: false,
   },
   {
     id: 'konzentration-steigern',
@@ -178,7 +178,7 @@ export const products: Product[] = [
     category: 'Leistung',
     tags: ['konzentration', 'fokus', 'produktivität', 'leistung', 'arbeit', 'lernen', 'ablenkung', 'audio'],
     benefits: ['Fokus und Klarheit stärken', 'Ablenkungen reduzieren', 'Produktivität steigern'],
-    isActive: true,
+    isActive: false,
   },
   {
     id: 'pruefungsangst',
@@ -194,7 +194,7 @@ export const products: Product[] = [
     category: 'Leistung',
     tags: ['prüfung', 'prüfungsangst', 'angst', 'stress', 'schule', 'studium', 'nervosität', 'leistung', 'audio'],
     benefits: ['Prüfungsangst reduzieren', 'Konzentration unter Druck', 'Abrufbarkeit verbessern'],
-    isActive: true,
+    isActive: false,
   },
   {
     id: 'gutschein-impuls-session',
@@ -303,8 +303,8 @@ export const coaches: Coach[] = [
     id: 'franz-ruchti',
     slug: 'franz-ruchti',
     name: 'Franz Ruchti',
-    city: 'Zürich',
-    region: 'Zürich',
+    city: 'Luzern',
+    region: 'Luzern',
     country: 'Schweiz',
     email: 'franz@hypnovital.net',
     phone: '+41 79 123 45 67',
@@ -340,7 +340,7 @@ export const coaches: Coach[] = [
     specializations: ['Entspannung', 'Ängste lösen', 'Schlaf verbessern', 'Selbstvertrauen'],
     offersCorporateWorkshops: false,
     imageUrl: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop&crop=face',
-    isActive: true,
+    isActive: false,
   },
   {
     id: 'markus-weber',
@@ -358,7 +358,7 @@ export const coaches: Coach[] = [
     specializations: ['Führungskräfte', 'Resilienz', 'Stressmanagement', 'Teamdynamik'],
     offersCorporateWorkshops: true,
     imageUrl: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&h=400&fit=crop&crop=face',
-    isActive: true,
+    isActive: false,
   },
   {
     id: 'sarah-brunner',
@@ -376,7 +376,7 @@ export const coaches: Coach[] = [
     specializations: ['Lampenfieber', 'Prüfungsangst', 'Selbstvertrauen', 'Sportmental'],
     offersCorporateWorkshops: false,
     imageUrl: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=400&fit=crop&crop=face',
-    isActive: true,
+    isActive: false,
   },
   {
     id: 'barbara-husmann',

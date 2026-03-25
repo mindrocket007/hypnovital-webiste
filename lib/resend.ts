@@ -3,11 +3,19 @@ import { CustomerEmail } from '@/emails/CustomerEmail'
 import { AdminEmail } from '@/emails/AdminEmail'
 import React from 'react'
 
-if (!process.env.RESEND_API_KEY) {
-  throw new Error('RESEND_API_KEY ist nicht gesetzt')
+function getResend() {
+  if (!process.env.RESEND_API_KEY) {
+    throw new Error('RESEND_API_KEY ist nicht gesetzt')
+  }
+  return new Resend(process.env.RESEND_API_KEY)
 }
 
-export const resend = new Resend(process.env.RESEND_API_KEY)
+// Lazy export – crasht nicht beim Build wenn Key fehlt
+export const resend = new Proxy({} as Resend, {
+  get(_, prop) {
+    return (getResend() as unknown as Record<string | symbol, unknown>)[prop]
+  },
+})
 
 const FROM = process.env.RESEND_FROM_EMAIL || 'noreply@hypnovital.net'
 const ADMIN = process.env.ADMIN_NOTIFICATION_EMAIL || 'info@hypnovital.net'
@@ -21,7 +29,7 @@ export async function sendCustomerEmail({
   productTitle: string
   downloadUrl: string
 }) {
-  return resend.emails.send({
+  return getResend().emails.send({
     from: FROM,
     to,
     subject: 'Dein hypnovital Audio-Programm',
@@ -38,7 +46,7 @@ export async function sendAdminEmail({
   customerEmail: string
   sessionId: string
 }) {
-  return resend.emails.send({
+  return getResend().emails.send({
     from: FROM,
     to: ADMIN,
     subject: 'Neuer Verkauf bei hypnovital',

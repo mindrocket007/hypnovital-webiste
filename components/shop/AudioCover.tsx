@@ -16,7 +16,7 @@ const titleConfigs: Record<string, TitleConfig> = {
   'rauchfrei':              { lines: ['Rauchfrei'],                    fontSize: 52, startY: 185 },
   'tief-entspannen':        { lines: ['Tief', 'entspannen'],           fontSize: 42, startY: 162 },
   'selbstvertrauen':        { lines: ['Selbstvertrauen', 'stärken'],   fontSize: 36, startY: 168 },
-  'lampenfieber':           { lines: ['Lampenfieber', 'lösen'],        fontSize: 42, startY: 162 },
+  'lampenfieber':           { lines: ['Lampenfieber', 'besiegen'],     fontSize: 42, startY: 162 },
   'orgasmus-hinauszogern':  { lines: ['Orgasmus', 'hinauszögern'],     fontSize: 38, startY: 168 },
   'tief-schlafen':          { lines: ['Tief', 'schlafen'],             fontSize: 42, startY: 162 },
   'gedanken-beruhigen':     { lines: ['Gedanken', 'beruhigen'],        fontSize: 40, startY: 162 },

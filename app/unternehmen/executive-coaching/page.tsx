@@ -92,8 +92,7 @@ export default function ExecutiveCoachingPage() {
               <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-1">
                 Ihre Investition
               </p>
-              <p className="text-4xl font-headline font-black text-primary">€/CHF 650</p>
-              <p className="text-sm text-gray-500 mt-1">pro Stunde</p>
+              <p className="text-4xl font-headline font-black text-primary">Preis auf Anfrage</p>
             </div>
 
             <ul className="space-y-3 mb-8">
