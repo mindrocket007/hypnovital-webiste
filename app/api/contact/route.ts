@@ -6,7 +6,7 @@ export async function POST(req: NextRequest) {
     const body = await req.json()
     const { name, email, subject, message, company, phone, interest, funktion, city, country, franchiseRegion, deliveryMethod, standort, coachEmail, coachName } = body
 
-    if (!name || !email || !message) {
+    if (!name || !email) {
       return NextResponse.json({ error: 'Pflichtfelder fehlen' }, { status: 400 })
     }
 
@@ -58,6 +58,46 @@ export async function POST(req: NextRequest) {
         : `Neue Anfrage: ${subject || name} – hypnovital`,
       html,
     })
+
+    // Bei Franchise-Anfragen: automatisch Partner-Link an Interessenten senden
+    if (subject === 'Coach werden / Franchise') {
+      const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://hypnovital.net'
+      try {
+        await resend.emails.send({
+          from,
+          to: email,
+          subject: 'Deine nächsten Schritte – hypnovital® Partner',
+          html: `
+            <div style="font-family: Arial, sans-serif; max-width: 560px; margin: 0 auto; padding: 40px 20px;">
+              <h2 style="color: #111; margin-bottom: 8px;">Danke für dein Interesse, ${name}!</h2>
+              <p style="color: #444; font-size: 16px; line-height: 24px;">
+                Schön, dass du dich für eine Partnerschaft mit hypnovital® interessierst. Wir haben deine Anfrage erhalten.
+              </p>
+              <p style="color: #444; font-size: 16px; line-height: 24px;">
+                <strong>Dein nächster Schritt:</strong> Auf der folgenden Seite findest du alle Details zum Partner-Modell, zur Investition und zum Ablauf. Dort kannst du dich auch direkt bewerben und – wenn dein Profil passt – einen persönlichen Gesprächstermin mit Franz Ruchti buchen.
+              </p>
+              <div style="text-align: center; margin: 32px 0;">
+                <a href="${siteUrl}/partner" style="background-color: #84b818; color: #ffffff; font-size: 16px; font-weight: 700; padding: 14px 32px; border-radius: 8px; text-decoration: none; display: inline-block;">
+                  Partner-Infos &amp; Bewerbung
+                </a>
+              </div>
+              <p style="color: #444; font-size: 16px; line-height: 24px;">
+                Dieser Link ist exklusiv für dich – bitte teile ihn nicht öffentlich.
+              </p>
+              <hr style="border: none; border-top: 1px solid #eaeaea; margin: 32px 0 24px;" />
+              <p style="color: #999; font-size: 13px; text-align: center;">
+                Bei Fragen erreichst du uns unter info@hypnovital.net
+              </p>
+              <p style="color: #999; font-size: 13px; text-align: center;">
+                hypnovital – Mentale Veränderung beginnt im Unterbewusstsein
+              </p>
+            </div>
+          `,
+        })
+      } catch (err) {
+        console.error('Fehler beim Senden der Partner-Info-Mail:', err)
+      }
+    }
 
     return NextResponse.json({ success: true })
   } catch (err) {

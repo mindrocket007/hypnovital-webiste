@@ -6,6 +6,8 @@ import {
   Heading,
   Hr,
   Html,
+  Img,
+  Link,
   Preview,
   Section,
   Text,
@@ -14,9 +16,11 @@ import {
 interface CustomerEmailProps {
   productTitle: string
   downloadUrl: string
+  contractUrl: string
+  siteUrl?: string
 }
 
-export function CustomerEmail({ productTitle, downloadUrl }: CustomerEmailProps) {
+export function CustomerEmail({ productTitle, downloadUrl, contractUrl, siteUrl = 'https://hypnovital.net' }: CustomerEmailProps) {
   return (
     <Html>
       <Head />
@@ -24,7 +28,12 @@ export function CustomerEmail({ productTitle, downloadUrl }: CustomerEmailProps)
       <Body style={main}>
         <Container style={container}>
           <Section style={logoSection}>
-            <Text style={logo}>hypnovital</Text>
+            <Img
+              src={`${siteUrl}/logo-hypnovital.png`}
+              width="180"
+              alt="hypnovital"
+              style={logoImg}
+            />
           </Section>
 
           <Heading style={h1}>Danke für deinen Kauf!</Heading>
@@ -40,6 +49,66 @@ export function CustomerEmail({ productTitle, downloadUrl }: CustomerEmailProps)
           <Section style={buttonSection}>
             <Button href={downloadUrl} style={button}>
               Jetzt herunterladen
+            </Button>
+          </Section>
+
+          <Hr style={hr} />
+
+          {/* Pattern Interrupt Hinweis */}
+          <Heading style={h2}>Hinweis zur Sprachgestaltung</Heading>
+
+          <Text style={text}>
+            Unser Audio arbeitet bewusst mit sogenannten Pattern Interrupts – kleine sprachliche
+            Überraschungen, die dein Unterbewusstsein besonders aufnahmefähig machen. Aus der
+            Forschung wissen wir, dass leicht unerwartete Aussprachen die Aufmerksamkeit auf
+            Schlüsselwörter erhöhen und die Trance vertiefen. Es ist also kein Fehler, sondern
+            ein gezielt eingesetztes hypnotisches Werkzeug.
+          </Text>
+
+          <Hr style={hr} />
+
+          {/* Selbstverpflichtungsvertrag */}
+          <Heading style={h2}>Dein Selbstverpflichtungsvertrag</Heading>
+
+          <Text style={text}>
+            Im Anhang findest du deinen persönlichen Selbstverpflichtungsvertrag. Studien zeigen,
+            dass schriftliche Selbstverpflichtungen die Erfolgsrate um bis zu 40% erhöhen.
+          </Text>
+
+          <Text style={text}>
+            <strong>Warum ist der Vertrag so wichtig?</strong> Der Selbstverpflichtungsvertrag
+            ist ein fester Bestandteil deiner Hypnose-Session. Während der Trance wirst du
+            einem inneren Bodyguard begegnen – einer starken, schützenden Gestalt, die dir
+            die zum Programm passenden Ziele vorliest und tief in deinem Unterbewusstsein
+            verankert. Dein persönlicher Vertrag ergänzt diesen Prozess: Indem du deine
+            eigenen Ziele vorher bewusst formulierst und unterschreibst, verstärkst du die
+            Wirkung der Hypnose zusätzlich.
+          </Text>
+
+          <Text style={text}>
+            Du möchtest, dass der Bodyguard genau <strong>deine persönlichen Ziele</strong> vorliest?
+            Dann ist ein{' '}
+            <Link href="https://www.hypnovital.net/persoenliches-audio" style={link}>
+              persönliches Hypnose-Audio
+            </Link>{' '}
+            das Richtige für dich – individuell auf dich und deine Situation abgestimmt.
+          </Text>
+
+          <Text style={text}>
+            <strong>So gehst du vor:</strong>
+          </Text>
+
+          <Text style={listText}>
+            1. Drucke den Vertrag aus{'\n'}
+            2. Formuliere deine Ziele konkret und positiv{'\n'}
+            3. Schreibe auf, warum dir das Thema wichtig ist und wie du dich fühlst, wenn du dein Ziel erreicht hast{'\n'}
+            4. Unterschreibe den Vertrag – das macht ihn verbindlich für dich{'\n'}
+            5. Hänge ihn dort auf, wo du ihn täglich siehst (Spiegel, Nachttisch, Kühlschrank)
+          </Text>
+
+          <Section style={buttonSection}>
+            <Button href={contractUrl} style={buttonSecondary}>
+              Selbstverpflichtungsvertrag herunterladen
             </Button>
           </Section>
 
@@ -75,11 +144,8 @@ const logoSection = {
   marginBottom: '32px',
 }
 
-const logo = {
-  fontSize: '24px',
-  fontWeight: '900',
-  color: '#84b818',
-  margin: '0',
+const logoImg = {
+  margin: '0 auto',
 }
 
 const h1 = {
@@ -90,11 +156,26 @@ const h1 = {
   marginBottom: '24px',
 }
 
+const h2 = {
+  color: '#111111',
+  fontSize: '18px',
+  fontWeight: '700',
+  marginBottom: '12px',
+}
+
 const text = {
   color: '#444444',
   fontSize: '16px',
   lineHeight: '24px',
   marginBottom: '16px',
+}
+
+const listText = {
+  color: '#444444',
+  fontSize: '16px',
+  lineHeight: '28px',
+  marginBottom: '16px',
+  whiteSpace: 'pre-line' as const,
 }
 
 const buttonSection = {
@@ -112,6 +193,23 @@ const button = {
   borderRadius: '8px',
   textDecoration: 'none',
   display: 'inline-block',
+}
+
+const buttonSecondary = {
+  backgroundColor: '#ffffff',
+  color: '#84b818',
+  fontSize: '16px',
+  fontWeight: '700',
+  padding: '14px 32px',
+  borderRadius: '8px',
+  textDecoration: 'none',
+  display: 'inline-block',
+  border: '2px solid #84b818',
+}
+
+const link = {
+  color: '#84b818',
+  textDecoration: 'underline',
 }
 
 const hr = {

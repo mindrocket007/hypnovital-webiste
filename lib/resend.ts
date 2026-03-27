@@ -29,11 +29,14 @@ export async function sendCustomerEmail({
   productTitle: string
   downloadUrl: string
 }) {
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://hypnovital.net'
+  const contractUrl = `${siteUrl}/selbstverpflichtungsvertrag.pdf`
+
   return getResend().emails.send({
     from: FROM,
     to,
     subject: 'Dein hypnovital Audio-Programm',
-    react: React.createElement(CustomerEmail, { productTitle, downloadUrl }),
+    react: React.createElement(CustomerEmail, { productTitle, downloadUrl, contractUrl, siteUrl }),
   })
 }
 
