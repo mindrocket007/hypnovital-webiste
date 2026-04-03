@@ -23,6 +23,17 @@ const titleConfigs: Record<string, TitleConfig> = {
   'selbstliebe-entwickeln': { lines: ['Selbstliebe', 'entwickeln'],    fontSize: 38, startY: 165 },
   'konzentration-steigern': { lines: ['Konzentration', 'steigern'],    fontSize: 34, startY: 168 },
   'pruefungsangst':         { lines: ['Prüfungsangst', 'lösen'],       fontSize: 38, startY: 165 },
+  'resilienz':              { lines: ['Resilienz', 'aufbauen'],        fontSize: 42, startY: 162 },
+  'verkaufsmindset':        { lines: ['Verkaufs-', 'mindset'],         fontSize: 42, startY: 162 },
+  'fuehrungsstaerke':       { lines: ['Führungs-', 'stärke'],          fontSize: 42, startY: 162 },
+  'prokrastination':        { lines: ['Prokrastination', 'überwinden'],  fontSize: 32, startY: 165 },
+  'sport':                  { lines: ['Dranbleiben', 'beim Sport'],      fontSize: 38, startY: 162 },
+  'fitamsteuer':            { lines: ['Fit am', 'Steuer'],               fontSize: 42, startY: 162 },
+  'pflegekraft':            { lines: ['Pflege-', 'Kraft'],               fontSize: 42, startY: 162 },
+  'arztstark':              { lines: ['Arzt-', 'Stark'],                 fontSize: 42, startY: 162 },
+  'lehrfit':                { lines: ['Lehr-', 'Fit'],                   fontSize: 42, startY: 162 },
+  'flugangst':              { lines: ['Mit Freude', 'fliegen'],              fontSize: 42, startY: 162 },
+  'ceomind':                { lines: ['CEO-Mind'],                          fontSize: 48, startY: 185 },
   'persoenliches-audio':    { lines: ['Mein persönliches', 'Hypnose-Audio'], fontSize: 32, startY: 155 },
 }
 
@@ -216,6 +227,177 @@ function Visual({ productId }: { productId: string }) {
           <line x1="94" y1="18" x2="360" y2="18" stroke="rgba(127,191,47,0.15)" strokeWidth="1" strokeLinecap="round"/>
           {/* Calm endpoint */}
           <circle cx="360" cy="0" r="4.5" fill="#7FBF2F" opacity="0.9"/>
+        </g>
+      )
+
+    case 'fuehrungsstaerke':
+      // Compass / direction indicator – clear leadership, direction
+      return (
+        <g transform="translate(295, 305)">
+          <circle cx="0" cy="0" r="60" fill="none" stroke="rgba(127,191,47,0.15)" strokeWidth="1.5"/>
+          <circle cx="0" cy="0" r="40" fill="none" stroke="rgba(127,191,47,0.25)" strokeWidth="1"/>
+          <circle cx="0" cy="0" r="4" fill="#7FBF2F" opacity="0.9"/>
+          {/* North arrow */}
+          <line x1="0" y1="-8" x2="0" y2="-55" stroke="#7FBF2F" strokeWidth="2.5" strokeLinecap="round" opacity="0.9"/>
+          <polygon points="0,-60 -6,-48 6,-48" fill="#7FBF2F" opacity="0.9"/>
+          {/* Cross lines */}
+          <line x1="-35" y1="0" x2="35" y2="0" stroke="rgba(127,191,47,0.2)" strokeWidth="0.8"/>
+          <line x1="0" y1="8" x2="0" y2="35" stroke="rgba(127,191,47,0.2)" strokeWidth="0.8"/>
+        </g>
+      )
+
+    case 'resilienz':
+      // Rooted tree trunk – deep roots, unshakable strength
+      return (
+        <g transform="translate(290, 260)">
+          {/* Trunk */}
+          <line x1="0" y1="-60" x2="0" y2="60" stroke="#7FBF2F" strokeWidth="3" strokeLinecap="round" opacity="0.9"/>
+          {/* Roots spreading down */}
+          <line x1="0" y1="60" x2="-40" y2="100" stroke="#7FBF2F" strokeWidth="1.5" strokeLinecap="round" opacity="0.5"/>
+          <line x1="0" y1="60" x2="35" y2="105" stroke="#7FBF2F" strokeWidth="1.5" strokeLinecap="round" opacity="0.5"/>
+          <line x1="0" y1="50" x2="-55" y2="85" stroke="#7FBF2F" strokeWidth="1" strokeLinecap="round" opacity="0.3"/>
+          <line x1="0" y1="50" x2="50" y2="90" stroke="#7FBF2F" strokeWidth="1" strokeLinecap="round" opacity="0.3"/>
+          <line x1="0" y1="40" x2="-25" y2="95" stroke="rgba(127,191,47,0.2)" strokeWidth="0.8" strokeLinecap="round"/>
+          <line x1="0" y1="40" x2="20" y2="100" stroke="rgba(127,191,47,0.2)" strokeWidth="0.8" strokeLinecap="round"/>
+          {/* Crown */}
+          <circle cx="0" cy="-60" r="30" fill="none" stroke="#7FBF2F" strokeWidth="1.5" opacity="0.4"/>
+          <circle cx="0" cy="-60" r="18" fill="none" stroke="#7FBF2F" strokeWidth="1" opacity="0.6"/>
+          <circle cx="0" cy="-60" r="6" fill="#7FBF2F" opacity="0.8"/>
+        </g>
+      )
+
+    case 'verkaufsmindset':
+      // Handshake / connection lines – trust, deal, partnership
+      return (
+        <g transform="translate(20, 300)">
+          {/* Rising arrow path */}
+          <path d="M0,40 L80,40 L160,0 L240,-20 L320,-40 L360,-50" fill="none" stroke="#7FBF2F" strokeWidth="2" strokeLinecap="round"/>
+          {/* Data points */}
+          <circle cx="80" cy="40" r="4" fill="#7FBF2F" opacity="0.9"/>
+          <circle cx="160" cy="0" r="4" fill="#7FBF2F" opacity="0.9"/>
+          <circle cx="240" cy="-20" r="5" fill="#7FBF2F" opacity="0.9"/>
+          <circle cx="320" cy="-40" r="6" fill="#7FBF2F" opacity="0.9"/>
+          {/* Subtle grid */}
+          <line x1="0" y1="40" x2="360" y2="40" stroke="rgba(127,191,47,0.1)" strokeWidth="0.5"/>
+          <line x1="0" y1="0" x2="360" y2="0" stroke="rgba(127,191,47,0.07)" strokeWidth="0.5"/>
+          <line x1="0" y1="-40" x2="360" y2="-40" stroke="rgba(127,191,47,0.05)" strokeWidth="0.5"/>
+        </g>
+      )
+
+    case 'prokrastination':
+      // Rocket / forward arrow – instant action, momentum
+      return (
+        <g transform="translate(295, 310)">
+          <line x1="0" y1="50" x2="0" y2="-50" stroke="#7FBF2F" strokeWidth="2.5" strokeLinecap="round" opacity="0.9"/>
+          <polygon points="0,-60 -8,-42 8,-42" fill="#7FBF2F" opacity="0.9"/>
+          <line x1="-8" y1="50" x2="8" y2="50" stroke="#7FBF2F" strokeWidth="1.5" strokeLinecap="round" opacity="0.5"/>
+          <line x1="-15" y1="60" x2="15" y2="60" stroke="#7FBF2F" strokeWidth="1" strokeLinecap="round" opacity="0.3"/>
+          <circle cx="0" cy="0" r="25" fill="none" stroke="rgba(127,191,47,0.15)" strokeWidth="1"/>
+          <circle cx="0" cy="0" r="45" fill="none" stroke="rgba(127,191,47,0.08)" strokeWidth="0.8"/>
+        </g>
+      )
+
+    case 'sport':
+      // Heartbeat / pulse line – vitality, movement, energy
+      return (
+        <g transform="translate(50, 320)">
+          <path d="M0,0 L80,0 L110,-40 L130,30 L150,-50 L170,20 L190,0 L350,0" fill="none" stroke="#7FBF2F" strokeWidth="2" strokeLinecap="round" opacity="0.9"/>
+          <circle cx="150" cy="-50" r="4" fill="#7FBF2F" opacity="0.8"/>
+          <circle cx="0" cy="0" r="2" fill="#7FBF2F" opacity="0.4"/>
+          <circle cx="350" cy="0" r="2" fill="#7FBF2F" opacity="0.4"/>
+        </g>
+      )
+
+    case 'fitamsteuer':
+      // Steering wheel – driving, control, focus
+      return (
+        <g transform="translate(295, 310)">
+          <circle cx="0" cy="0" r="55" fill="none" stroke="#7FBF2F" strokeWidth="2" opacity="0.7"/>
+          <circle cx="0" cy="0" r="15" fill="none" stroke="#7FBF2F" strokeWidth="1.5" opacity="0.9"/>
+          <line x1="15" y1="0" x2="55" y2="0" stroke="#7FBF2F" strokeWidth="1.5" opacity="0.6"/>
+          <line x1="-15" y1="0" x2="-55" y2="0" stroke="#7FBF2F" strokeWidth="1.5" opacity="0.6"/>
+          <line x1="0" y1="15" x2="0" y2="55" stroke="#7FBF2F" strokeWidth="1.5" opacity="0.6"/>
+          <circle cx="0" cy="0" r="4" fill="#7FBF2F" opacity="0.9"/>
+        </g>
+      )
+
+    case 'pflegekraft':
+      // Shield with heart – protection, care, strength
+      return (
+        <g transform="translate(295, 290)">
+          <path d="M0,-55 L40,-35 L40,10 L0,55 L-40,10 L-40,-35 Z" fill="none" stroke="#7FBF2F" strokeWidth="1.5" opacity="0.6"/>
+          <path d="M0,-10 C-5,-25 -20,-25 -20,-10 C-20,0 0,18 0,18 C0,18 20,0 20,-10 C20,-25 5,-25 0,-10 Z" fill="#7FBF2F" opacity="0.3" stroke="#7FBF2F" strokeWidth="1"/>
+          <circle cx="0" cy="0" r="35" fill="none" stroke="rgba(127,191,47,0.1)" strokeWidth="0.8"/>
+        </g>
+      )
+
+    case 'arztstark':
+      // Medical cross / plus – precision, healing, focus
+      return (
+        <g transform="translate(295, 310)">
+          <rect x="-8" y="-40" width="16" height="80" rx="4" fill="#7FBF2F" opacity="0.3"/>
+          <rect x="-40" y="-8" width="80" height="16" rx="4" fill="#7FBF2F" opacity="0.3"/>
+          <circle cx="0" cy="0" r="50" fill="none" stroke="#7FBF2F" strokeWidth="1.5" opacity="0.5"/>
+          <circle cx="0" cy="0" r="5" fill="#7FBF2F" opacity="0.9"/>
+        </g>
+      )
+
+    case 'lehrfit':
+      // Open book / knowledge – teaching, wisdom, balance
+      return (
+        <g transform="translate(295, 310)">
+          <line x1="0" y1="-40" x2="0" y2="40" stroke="#7FBF2F" strokeWidth="1.5" opacity="0.7"/>
+          <path d="M0,-35 C-20,-40 -50,-30 -55,-20" fill="none" stroke="#7FBF2F" strokeWidth="1.5" strokeLinecap="round" opacity="0.6"/>
+          <path d="M0,-35 C20,-40 50,-30 55,-20" fill="none" stroke="#7FBF2F" strokeWidth="1.5" strokeLinecap="round" opacity="0.6"/>
+          <path d="M0,35 C-20,40 -50,30 -55,20" fill="none" stroke="#7FBF2F" strokeWidth="1.5" strokeLinecap="round" opacity="0.4"/>
+          <path d="M0,35 C20,40 50,30 55,20" fill="none" stroke="#7FBF2F" strokeWidth="1.5" strokeLinecap="round" opacity="0.4"/>
+          <line x1="-40" y1="-10" x2="-15" y2="-8" stroke="rgba(127,191,47,0.25)" strokeWidth="0.8"/>
+          <line x1="-42" y1="0" x2="-15" y2="2" stroke="rgba(127,191,47,0.2)" strokeWidth="0.8"/>
+          <line x1="-40" y1="10" x2="-15" y2="12" stroke="rgba(127,191,47,0.15)" strokeWidth="0.8"/>
+          <line x1="15" y1="-8" x2="40" y2="-10" stroke="rgba(127,191,47,0.25)" strokeWidth="0.8"/>
+          <line x1="15" y1="2" x2="42" y2="0" stroke="rgba(127,191,47,0.2)" strokeWidth="0.8"/>
+          <line x1="15" y1="12" x2="40" y2="10" stroke="rgba(127,191,47,0.15)" strokeWidth="0.8"/>
+        </g>
+      )
+
+    case 'flugangst':
+      // Paper plane / flight path – freedom, lightness, joy of flying
+      return (
+        <g transform="translate(40, 310)">
+          {/* Flight path – ascending curve */}
+          <path d="M0,40 C60,40 80,20 120,0 C160,-20 200,-30 260,-45 C290,-52 310,-54 330,-55"
+            fill="none" stroke="rgba(127,191,47,0.25)" strokeWidth="1" strokeLinecap="round" strokeDasharray="4 6"/>
+          {/* Paper plane at end of path */}
+          <g transform="translate(330, -55) rotate(-8)">
+            <path d="M0,0 L-22,8 L-8,0 L-22,-8 Z" fill="#7FBF2F" opacity="0.85"/>
+            <line x1="-8" y1="0" x2="-18" y2="0" stroke="white" strokeWidth="0.5" opacity="0.4"/>
+          </g>
+          {/* Clouds */}
+          <ellipse cx="80" cy="-10" rx="30" ry="8" fill="rgba(127,191,47,0.06)"/>
+          <ellipse cx="180" cy="-35" rx="25" ry="7" fill="rgba(127,191,47,0.08)"/>
+          <ellipse cx="260" cy="-15" rx="20" ry="6" fill="rgba(127,191,47,0.05)"/>
+          {/* Takeoff dot */}
+          <circle cx="0" cy="40" r="3" fill="#7FBF2F" opacity="0.5"/>
+        </g>
+      )
+
+    case 'ceomind':
+      // Crown / diamond – sovereignty, leadership, mental clarity
+      return (
+        <g transform="translate(295, 295)">
+          {/* Crown base */}
+          <rect x="-45" y="20" width="90" height="8" rx="3" fill="#7FBF2F" opacity="0.4"/>
+          {/* Crown peaks */}
+          <path d="M-45,20 L-35,-15 L-15,10 L0,-40 L15,10 L35,-15 L45,20"
+            fill="none" stroke="#7FBF2F" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" opacity="0.85"/>
+          {/* Center diamond */}
+          <path d="M0,-40 L8,-28 L0,-16 L-8,-28 Z" fill="#7FBF2F" opacity="0.7"/>
+          {/* Side gems */}
+          <circle cx="-35" cy="-15" r="3.5" fill="#7FBF2F" opacity="0.6"/>
+          <circle cx="35" cy="-15" r="3.5" fill="#7FBF2F" opacity="0.6"/>
+          {/* Glow ring */}
+          <circle cx="0" cy="-5" r="55" fill="none" stroke="rgba(127,191,47,0.08)" strokeWidth="0.8"/>
+          <circle cx="0" cy="-5" r="70" fill="none" stroke="rgba(127,191,47,0.04)" strokeWidth="0.5"/>
         </g>
       )
 

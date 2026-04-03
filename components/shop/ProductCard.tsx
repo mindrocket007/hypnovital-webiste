@@ -2,12 +2,28 @@
 
 import { useState, useRef } from 'react'
 import { Download, Loader2, ShieldCheck, Play, Pause, Volume2 } from 'lucide-react'
+import Link from 'next/link'
 import AudioCover from '@/components/shop/AudioCover'
+import { audioDetails } from '@/lib/audio-details'
 
 const PREVIEW_MAP: Record<string, string> = {
   abnehmen: '/audio/hoerprobe-abnehmen.mp3',
   rauchfrei: '/audio/hoerprobe-rauchfrei.mp3',
   lampenfieber: '/audio/hoerprobe-lampenfieber.mp3',
+  selbstvertrauen: '/audio/hoerprobe-selbstvertrauen.mp3',
+  resilienz: '/audio/hoerprobe-resilienz.mp3',
+  verkaufsmindset: '/audio/hoerprobe-verkaufsmindset.mp3',
+  fuehrungsstaerke: '/audio/hoerprobe-fuehrungsstaerke.mp3',
+  'tief-schlafen': '/audio/hoerprobe-tief-schlafen.mp3',
+  pruefungsangst: '/audio/hoerprobe-pruefungsangst.mp3',
+  prokrastination: '/audio/hoerprobe-prokrastination.mp3',
+  sport: '/audio/hoerprobe-sport.mp3',
+  fitamsteuer: '/audio/hoerprobe-fitamsteuer.mp3',
+  pflegekraft: '/audio/hoerprobe-pflegekraft.mp3',
+  arztstark: '/audio/hoerprobe-arztstark.mp3',
+  lehrfit: '/audio/hoerprobe-lehrfit.mp3',
+  ceomind: '/audio/hoerprobe-ceomind.mp3',
+  flugangst: '/audio/hoerprobe-flugangst.mp3',
 }
 
 interface ProductCardProps {
@@ -203,6 +219,15 @@ export default function ProductCard({
           <ShieldCheck size={13} className="text-primary flex-shrink-0" />
           <span className="text-xs text-gray-400">14-Tage Geld-zurück-Garantie</span>
         </div>
+
+        {audioDetails[slug] && (
+          <Link
+            href={`/audio/${slug}`}
+            className="block text-center text-sm text-primary font-semibold hover:text-primary-dark transition-colors mt-3 pt-3 border-t border-[#f0f0f0]"
+          >
+            Mehr über Inhalte & Wirkung →
+          </Link>
+        )}
       </div>
 
     </div>

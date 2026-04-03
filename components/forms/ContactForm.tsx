@@ -1,11 +1,20 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { useSearchParams } from 'next/navigation'
 import { Button } from '@/components/ui/Button'
 
 export default function ContactForm() {
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
   const [form, setForm] = useState({ name: '', email: '', subject: '', message: '' })
+  const searchParams = useSearchParams()
+
+  useEffect(() => {
+    const subject = searchParams.get('betreff')
+    if (subject) {
+      setForm((prev) => ({ ...prev, subject }))
+    }
+  }, [searchParams])
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }))
@@ -85,6 +94,7 @@ export default function ContactForm() {
           className="w-full px-4 py-3 rounded-xl border border-[#eaeaea] text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent bg-white"
         >
           <option value="">Bitte wählen…</option>
+          <option value="Audioprogramme">Audioprogramme</option>
           <option value="Einzelcoaching">Einzelcoaching</option>
           <option value="Firmenworkshop">Firmenworkshop</option>
           <option value="Keynote Anfrage">Keynote Anfrage</option>

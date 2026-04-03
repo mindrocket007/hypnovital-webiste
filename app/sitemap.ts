@@ -17,6 +17,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/programme`, priority: 0.9 },
     { url: `${BASE_URL}/coach`, priority: 0.9 },
     { url: `${BASE_URL}/shop`, priority: 0.8 },
+    { url: `${BASE_URL}/persoenliches-audio`, priority: 0.9 },
+    { url: `${BASE_URL}/methode`, priority: 0.9 },
     { url: `${BASE_URL}/veranstaltungen`, priority: 0.8 },
     { url: `${BASE_URL}/unternehmen/firmenangebote`, priority: 0.8 },
     { url: `${BASE_URL}/unternehmen/executive-coaching`, priority: 0.7 },

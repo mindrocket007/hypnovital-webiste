@@ -6,6 +6,8 @@ import StresskostenInfografik from '@/components/ui/StresskostenInfografik'
 import UebergewichtInfografik from '@/components/ui/UebergewichtInfografik'
 import DemotivationInfografik from '@/components/ui/DemotivationInfografik'
 import Link from 'next/link'
+import LaptopMockup from '@/components/ui/LaptopMockup'
+import { GraduationCap, Video, HelpCircle, ArrowRight, Monitor } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'Firmenangebote',
@@ -409,6 +411,83 @@ export default function FirmenangebotePage() {
         </div>
       </SectionWrapper>
 
+      {/* E-Learning Academy */}
+      <SectionWrapper bg="white">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 rounded-full px-4 py-1.5 mb-4">
+              <GraduationCap size={14} className="text-primary" />
+              <span className="text-xs font-semibold text-primary uppercase tracking-widest">Academy</span>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-headline font-black text-gray-900 mb-4">
+              E-Learning auf der hypnovital® Lernplattform
+            </h2>
+            <p className="text-gray-500 max-w-2xl mx-auto leading-relaxed">
+              Fundierte Online-Kurse mit Video-Lektionen, interaktiven Quizzes und Teilnehmer-Tracking – direkt im Browser, ohne Installation oder externe Software. Einzeln buchbar oder als Ergänzung zu Workshops und Hypnose-Audio-Programmen.
+            </p>
+          </div>
+
+          {/* Feature-Badges */}
+          <div className="flex flex-wrap justify-center gap-4 mb-14">
+            {[
+              { icon: Video, text: 'Video-Lektionen mit professioneller Moderation' },
+              { icon: HelpCircle, text: 'Interaktive Quizzes zur Wissensüberprüfung' },
+              { icon: Monitor, text: 'Keine Installation – direkt im Browser' },
+              { icon: BarChart3, text: 'HR-Dashboard mit Teilnehmer-Tracking' },
+            ].map(({ icon: Icon, text }) => (
+              <div key={text} className="flex items-center gap-2 bg-[#f5f5f5] rounded-full px-4 py-2">
+                <Icon size={14} className="text-primary" />
+                <span className="text-gray-600 text-sm">{text}</span>
+              </div>
+            ))}
+          </div>
+
+          {/* Kurs-Mockups */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-14">
+            {[
+              { title: 'Stressmanagement Grundlagen', src: '/images/academy-stress.jpg' },
+              { title: 'Rauchfrei werden', src: '/images/academy-rauchfrei.jpg' },
+              { title: 'Gesund abnehmen', src: '/images/academy-abnehmen.jpg' },
+            ].map(({ title, src }) => (
+              <div key={title} className="text-center">
+                <LaptopMockup src={src} alt={`E-Learning ${title}`} />
+                <p className="font-headline font-bold text-gray-900 mt-4 text-sm">{title}</p>
+                <span className="inline-block text-[10px] font-semibold text-primary bg-primary/10 px-3 py-1 rounded-full mt-2 uppercase tracking-widest">E-Learning</span>
+              </div>
+            ))}
+          </div>
+
+          {/* HR Dashboard + Teilnehmer-Sicht */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mb-14">
+            <div className="text-center">
+              <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-3">Für HR-Verantwortliche</p>
+              <LaptopMockup src="/images/academy-hr-dashboard.jpg" alt="HR Dashboard" />
+              <p className="font-headline font-bold text-gray-900 mt-4 text-sm">Teilnehmer-Tracking Dashboard</p>
+              <p className="text-xs text-gray-500 mt-1">Fortschritt, Quiz-Ergebnisse und Abschlussraten auf einen Blick</p>
+            </div>
+            <div className="text-center">
+              <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-3">Für Teilnehmende</p>
+              <LaptopMockup src="/images/academy-teilnehmer.jpg" alt="Teilnehmer Ansicht" />
+              <p className="font-headline font-bold text-gray-900 mt-4 text-sm">Personalisierte Kursansicht</p>
+              <p className="text-xs text-gray-500 mt-1">Persönliche Begrüssung, Fortschrittsanzeige und Quiz-Ergebnisse</p>
+            </div>
+          </div>
+
+          {/* CTA */}
+          <div className="text-center">
+            <Link
+              href="/academy"
+              className="inline-flex items-center gap-2 bg-primary text-white font-bold px-8 py-4 rounded-xl hover:bg-[#6aaa22] transition-colors"
+            >
+              <GraduationCap size={18} />
+              Alle E-Learning-Kurse entdecken
+              <ArrowRight size={16} />
+            </Link>
+            <p className="text-xs text-gray-400 mt-3">Auch einzeln für Privatpersonen verfügbar ab €/CHF 48.20</p>
+          </div>
+        </div>
+      </SectionWrapper>
+
       {/* 7. Angebotsformate */}
       <SectionWrapper bg="gray" id="angebote">
         <div className="text-center mb-12">
@@ -510,8 +589,8 @@ export default function FirmenangebotePage() {
             <div className="mb-4">
               <span className="inline-block bg-gray-900 text-white text-xs font-semibold px-3 py-1 rounded-full mb-3">Exklusiv</span>
               <h3 className="font-headline font-bold text-xl text-gray-900 mb-1">Executive Mental Performance Coaching</h3>
-              <p className="text-primary font-black text-2xl font-headline">€/CHF 650 / Std.</p>
-              <p className="text-xs text-gray-400">zzgl. MwSt. (DE/AT) resp. CHF inkl. MWST (CH)</p>
+              <p className="text-primary font-black text-2xl font-headline">Preis auf Anfrage</p>
+              <p className="text-xs text-gray-400">Individuelles Angebot nach Erstgespräch</p>
             </div>
             <div className="flex-1">
               <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">Zielgruppe</p>
@@ -857,6 +936,18 @@ export default function FirmenangebotePage() {
               {
                 q: 'Für welche Unternehmen eignet sich hypnovital® besonders?',
                 a: 'hypnovital® eignet sich besonders für Organisationen, die gezielt in Gesundheit, Leistungsfähigkeit und mentale Stärke investieren möchten – zum Beispiel Unternehmen mit hoher Stressbelastung, Organisationen mit Fokus auf Gesundheitsmanagement (BGM), Sales- und Performance-Teams sowie Leadership- und Entwicklungsprogramme. Die Formate können sowohl vor Ort als auch online durchgeführt werden.',
+              },
+              {
+                q: 'Kann ich E-Learning, Workshops und Audio-Programme frei kombinieren?',
+                a: 'Ja, alle Bausteine sind einzeln buchbar und frei kombinierbar. Sie können zum Beispiel mit einem E-Learning-Kurs starten, anschliessend einen Workshop vor Ort oder online durchführen und das Gelernte mit einem passenden Hypnose-Audio-Programm vertiefen. Wir beraten Sie gerne, welche Kombination für Ihr Unternehmen am besten passt.',
+              },
+              {
+                q: 'Welche Kombinationen empfehlen Sie für maximale Wirkung?',
+                a: 'Die stärkste Wirkung erzielen Sie mit der Kombination aus allen drei Bausteinen: Das E-Learning vermittelt das Grundlagenwissen, der Workshop vertieft die Inhalte durch praktische Übungen und persönliche Begleitung, und das Hypnose-Audio-Programm verankert die Veränderung nachhaltig im Unterbewusstsein. Aber auch einzelne Bausteine wirken – Sie entscheiden, was zu Ihrem Budget und Ihren Zielen passt.',
+              },
+              {
+                q: 'Gibt es Spezialkonditionen für Unternehmen?',
+                a: 'Ja, für Unternehmen bieten wir Volumenpreise ab 10 Teilnehmenden, inklusive Teilnehmer-Tracking und HR-Reporting. Je nach Umfang und Kombination der Bausteine erstellen wir ein individuelles Angebot. Nehmen Sie einfach Kontakt mit uns auf – wir beraten Sie unverbindlich.',
               },
             ].map((faq) => (
               <details key={faq.q} className="group">

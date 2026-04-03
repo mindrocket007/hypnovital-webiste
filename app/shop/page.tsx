@@ -8,7 +8,8 @@ import ShopCategoryNav from '@/components/shop/ShopCategoryNav'
 import ShopProductGrid from '@/components/shop/ShopProductGrid'
 import VoucherCard from '@/components/shop/VoucherCard'
 import { products } from '@/lib/data'
-import { BookOpen, Sliders, ShieldCheck, Star, CheckCircle2, Clock } from 'lucide-react'
+import { BookOpen, Sliders, ShieldCheck, Star, CheckCircle2, Clock, FileSignature, Target, Eye, TrendingUp, GraduationCap, Video, HelpCircle, Building2, ArrowRight } from 'lucide-react'
+import { courses } from '@/lib/academy-data'
 
 export default function ShopPage() {
   const [query, setQuery] = useState('')
@@ -154,6 +155,73 @@ export default function ShopPage() {
                   <p className="text-xs text-gray-500 leading-relaxed">{text}</p>
                 </div>
               ))}
+            </div>
+          </div>
+        </SectionWrapper>
+
+        {/* Selbstverpflichtungsvertrag */}
+        <SectionWrapper bg="white">
+          <div className="max-w-4xl mx-auto">
+            <div className="relative bg-gradient-to-br from-[#0e1e08] to-[#2a4f18] rounded-3xl overflow-hidden">
+              {/* Subtle pattern overlay */}
+              <div className="absolute inset-0 opacity-5">
+                <div className="absolute inset-0" style={{
+                  backgroundImage: 'repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(255,255,255,0.1) 35px, rgba(255,255,255,0.1) 36px)',
+                }} />
+              </div>
+
+              <div className="relative px-6 py-10 md:px-12 md:py-14">
+                {/* Badge */}
+                <div className="inline-flex items-center gap-2 bg-primary/15 border border-primary/25 rounded-full px-4 py-1.5 mb-6">
+                  <FileSignature size={14} className="text-primary" />
+                  <span className="text-xs font-semibold text-primary uppercase tracking-widest">Das macht uns anders</span>
+                </div>
+
+                <h2 className="text-2xl md:text-3xl font-headline font-black text-white mb-4 leading-tight tracking-tight">
+                  Jedes Programm kommt mit deinem persönlichen Selbstverpflichtungsvertrag
+                </h2>
+
+                <p className="text-white/70 text-base leading-relaxed mb-8 max-w-2xl">
+                  Wir liefern nicht einfach eine MP3 – sondern ein System, das wirkt. Deshalb erhältst du zu jedem Audio-Programm einen Selbstverpflichtungsvertrag, der deine Veränderung messbar verstärkt.
+                </p>
+
+                {/* How it works */}
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 mb-8">
+                  {[
+                    {
+                      icon: Target,
+                      title: 'Ziele formulieren',
+                      text: 'Du schreibst deine persönlichen Ziele auf und unterschreibst – das schafft innere Verbindlichkeit.',
+                    },
+                    {
+                      icon: Eye,
+                      title: 'Täglich sichtbar',
+                      text: 'Häng den Vertrag dort auf, wo du ihn siehst – Spiegel, Nachttisch, Kühlschrank. So bleibst du dran.',
+                    },
+                    {
+                      icon: TrendingUp,
+                      title: 'Wirkung verstärken',
+                      text: 'Während der Hypnose verankert dein innerer Bodyguard genau diese Ziele tief im Unterbewusstsein.',
+                    },
+                  ].map(({ icon: Icon, title, text }) => (
+                    <div key={title} className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-5">
+                      <div className="w-9 h-9 bg-primary/15 rounded-xl flex items-center justify-center mb-3">
+                        <Icon size={18} className="text-primary" />
+                      </div>
+                      <h3 className="font-headline font-bold text-white text-sm mb-1.5">{title}</h3>
+                      <p className="text-xs text-white/55 leading-relaxed">{text}</p>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Stat */}
+                <div className="flex items-center gap-4 bg-white/5 border border-white/10 rounded-2xl px-6 py-4">
+                  <div className="text-3xl font-headline font-black text-primary">+42%</div>
+                  <p className="text-sm text-white/60 leading-relaxed">
+                    Schriftliche Selbstverpflichtungen erhöhen die Erfolgsrate nachweislich. Deshalb ist der Vertrag fester Bestandteil jedes hypnovital® Programms.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </SectionWrapper>
@@ -314,18 +382,18 @@ export default function ShopPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-4 text-sm text-gray-500 leading-relaxed mb-8">
               <div className="space-y-4">
                 <p>
-                  Unsere E-Learning-Angebote ergänzen die hypnovital® Welt um fundiertes Wissen für mentale Stärke, Stresskompetenz und persönliche Entwicklung.
+                  Unsere E-Learning-Kurse ergänzen die hypnovital® Welt um fundiertes Wissen für mentale Stärke, Stresskompetenz und persönliche Entwicklung.
                 </p>
                 <p>
-                  Dabei achten wir auf Inhalte, die praxisnah, verständlich und direkt im Alltag anwendbar sind – für Einzelpersonen ebenso wie für Unternehmen.
+                  Jeder Kurs enthält Video-Lektionen, interaktive Quizzes und lässt sich ideal mit einem passenden Hypnose-Audio kombinieren.
                 </p>
               </div>
               <ul className="space-y-2">
                 {[
-                  'relevante Themen mit echtem Nutzen',
-                  'verständlich und klar aufgebaut',
-                  'flexibel digital nutzbar',
-                  'sinnvoll ergänzbar mit Audio-Programmen und Coachings',
+                  'Video-Lektionen mit professioneller Moderation',
+                  'Interaktive Quizzes zur Wissensüberprüfung',
+                  'Ideal kombinierbar mit Hypnose-Audio-Programmen',
+                  'Auch als Firmenangebot mit Teilnehmer-Tracking verfügbar',
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-2 text-sm text-gray-500">
                     <CheckCircle2 size={14} className="text-primary flex-shrink-0 mt-0.5" />
@@ -334,7 +402,119 @@ export default function ShopPage() {
                 ))}
               </ul>
             </div>
-            <ComingSoonBadge />
+
+            {/* Firmenangebot-Hinweis */}
+            <div className="flex items-start gap-5 bg-gradient-to-br from-[#0e1e08] to-[#2a4f18] rounded-2xl px-6 py-5 mt-2">
+              <div className="w-11 h-11 bg-primary/15 rounded-xl flex items-center justify-center flex-shrink-0">
+                <Building2 size={22} className="text-primary" />
+              </div>
+              <div>
+                <p className="font-headline font-bold text-white mb-1.5">
+                  Spezielle Firmenangebote
+                </p>
+                <p className="text-sm text-white/60 leading-relaxed">
+                  Für Unternehmen bieten wir massgeschneiderte Pakete: E-Learning-Kurse kombiniert mit Hypnose-Audio-Programmen und persönlichen Workshops – vor Ort oder online. Ein umfassendes Angebot für die mentale Gesundheit Ihrer Mitarbeitenden, inklusive Teilnehmer-Tracking und HR-Reporting.
+                </p>
+                <Link
+                  href="/unternehmen/firmenangebote"
+                  className="inline-flex items-center gap-2 text-primary text-sm font-semibold mt-3 hover:gap-3 transition-all"
+                >
+                  Firmenangebote entdecken
+                  <ArrowRight size={14} />
+                </Link>
+              </div>
+            </div>
+          </div>
+        </SectionWrapper>
+
+        <SectionWrapper bg="white">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {courses.filter(c => c.isActive).map((course) => {
+              const totalMinutes = course.lessons.reduce((sum, l) => {
+                const match = l.duration.match(/(\d+)/)
+                return sum + (match ? parseInt(match[1]) : 0)
+              }, 0)
+
+              const stripePriceMap: Record<string, string> = {
+                'stressmanagement-grundlagen': 'elearning-stressmanagement',
+                'rauchfrei-werden': 'elearning-rauchfrei',
+                'gesund-abnehmen': 'elearning-abnehmen',
+              }
+              const productSlug = stripePriceMap[course.slug] || course.slug
+
+              return (
+                <div
+                  key={course.slug}
+                  className="bg-white rounded-2xl border border-[#eaeaea] overflow-hidden hover:shadow-lg transition-all duration-200 flex flex-col"
+                >
+                  {/* Course Cover – klickbar zur Kursseite */}
+                  <Link href={`/academy/kurs/${course.slug}`} className="group">
+                    <div className="bg-gradient-to-br from-[#0e1e08] to-[#1a3a0e] px-5 py-6 relative overflow-hidden">
+                      <div className="absolute inset-0 opacity-5">
+                        <div className="absolute inset-0" style={{
+                          backgroundImage: 'repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(255,255,255,0.05) 20px, rgba(255,255,255,0.05) 21px)',
+                        }} />
+                      </div>
+                      <div className="relative">
+                        <div className="inline-flex items-center gap-1.5 bg-primary/15 border border-primary/25 rounded-full px-3 py-1 mb-3">
+                          <GraduationCap size={12} className="text-primary" />
+                          <span className="text-[10px] font-semibold text-primary uppercase tracking-widest">E-Learning</span>
+                        </div>
+                        <h3 className="text-lg font-headline font-bold text-white leading-snug group-hover:text-primary transition-colors">
+                          {course.title}
+                        </h3>
+                        <p className="text-white/50 text-xs mt-1">{course.subtitle}</p>
+                      </div>
+                    </div>
+                  </Link>
+
+                  {/* Card Body */}
+                  <div className="p-5 flex flex-col flex-1">
+                    <div className="flex items-center gap-3 text-xs text-gray-400 mb-3">
+                      <span className="flex items-center gap-1">
+                        <Video size={12} />
+                        {course.lessons.length} Lektionen
+                      </span>
+                      <span className="flex items-center gap-1">
+                        <Clock size={12} />
+                        ca. {totalMinutes} Min.
+                      </span>
+                      <span className="flex items-center gap-1">
+                        <HelpCircle size={12} />
+                        {course.lessons.length * 3} Quizfragen
+                      </span>
+                    </div>
+
+                    <p className="text-sm text-gray-500 leading-relaxed mb-4 flex-1">
+                      {course.description.length > 120 ? course.description.substring(0, 120) + '...' : course.description}
+                    </p>
+
+                    <Link
+                      href={`/academy/kurs/${course.slug}`}
+                      className="inline-flex items-center gap-1.5 text-primary text-sm font-semibold hover:gap-2.5 transition-all mb-4"
+                    >
+                      Kurs ansehen
+                      <ArrowRight size={14} />
+                    </Link>
+
+                    <div className="mt-auto pt-4 border-t border-[#f0f0f0]">
+                      <div className="flex items-center justify-between">
+                        <div>
+                          <span className="text-xl font-black text-gray-900 font-headline">€/CHF 48.20</span>
+                          <span className="text-xs text-gray-400 ml-1">inkl. MwSt.</span>
+                        </div>
+                        <ELearningBuyButton slug={productSlug} />
+                      </div>
+
+                      <div className="flex items-center gap-1.5 mt-3 pt-3 border-t border-[#f0f0f0]">
+                        <Building2 size={13} className="text-primary flex-shrink-0" />
+                        <span className="text-xs text-gray-400">Spezialkonditionen für Unternehmen</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )
+            })}
           </div>
         </SectionWrapper>
       </div>
@@ -390,5 +570,38 @@ function ComingSoonBadge() {
       <Clock size={15} className="text-primary" />
       <span className="text-sm font-semibold text-gray-600">Demnächst verfügbar</span>
     </div>
+  )
+}
+
+function ELearningBuyButton({ slug }: { slug: string }) {
+  const [loading, setLoading] = useState(false)
+
+  async function handleBuy() {
+    setLoading(true)
+    try {
+      const res = await fetch('/api/checkout', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ slug }),
+      })
+      const data = await res.json()
+      if (res.ok && data.url) {
+        window.open(data.url, '_blank')
+      }
+    } catch {
+      // ignore
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  return (
+    <button
+      onClick={handleBuy}
+      disabled={loading}
+      className="flex items-center gap-2 bg-primary text-white text-sm font-semibold px-5 py-2.5 rounded-xl hover:bg-[#6aaa22] transition-colors disabled:opacity-50"
+    >
+      {loading ? 'Bitte warten...' : 'Kaufen'}
+    </button>
   )
 }

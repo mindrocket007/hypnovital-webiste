@@ -13,8 +13,8 @@ export const metadata: Metadata = {
 
 // Kennzahlen – einfach anpassbar
 const stats = [
-  { value: '500+', label: 'Menschen begleitet' },
-  { value: '12+', label: 'Coaches im Netzwerk' },
+  { value: '100+', label: 'Menschen begleitet' },
+  { value: '2', label: 'Coaches im Netzwerk' },
   { value: '8+', label: 'Programme entwickelt' },
   { value: '3', label: 'Regionen im Aufbau' },
 ]
@@ -236,10 +236,10 @@ export default function UeberUnsPage() {
           <div className="grid grid-cols-1 md:grid-cols-5 gap-4 relative">
             {[
               { nr: '01', label: 'House of Change', text: 'Das Fundament. Verstehe, wie mentale Veränderung wirklich funktioniert.', color: 'bg-[#0e1e08]' },
-              { nr: '02', label: 'Verantwortung', text: 'Übernimm Verantwortung für deine Gedanken, Gefühle und Handlungen.', color: 'bg-[#142e0b]' },
-              { nr: '03', label: 'Loslassen', text: 'Löse alte Muster und Blockaden durch tiefes Loslassen und Vergeben.', color: 'bg-[#1a3e0e]' },
-              { nr: '04', label: 'Ressourcen', text: 'Aktiviere deine inneren Ressourcen und stärke deine Resilienz.', color: 'bg-[#204e11]' },
-              { nr: '05', label: 'Verankern', text: 'Verankere die Veränderung tief im Unterbewusstsein – dauerhaft.', color: 'bg-primary' },
+              { nr: '02', label: 'Responsibility', text: 'Übernimm Verantwortung für deine Gedanken, Gefühle und Handlungen.', color: 'bg-[#142e0b]' },
+              { nr: '03', label: 'Forgiveness', text: 'Löse alte Muster und Blockaden durch tiefes Vergeben und Loslassen.', color: 'bg-[#1a3e0e]' },
+              { nr: '04', label: 'Resources', text: 'Aktiviere deine inneren Ressourcen und stärke deine Resilienz.', color: 'bg-[#204e11]' },
+              { nr: '05', label: 'Power Room', text: 'Dein mentaler Kraftraum. Hier entfaltest du dein volles Potenzial.', color: 'bg-primary' },
             ].map((step, i) => (
               <div key={step.nr} className="relative flex flex-col">
                 <div className={`${step.color} rounded-2xl p-5 flex-1 flex flex-col`}>

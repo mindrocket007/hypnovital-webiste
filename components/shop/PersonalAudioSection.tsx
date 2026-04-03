@@ -2,6 +2,7 @@
 
 import { useState, useRef } from 'react'
 import { ChevronRight, ChevronLeft, Loader2, Check, Shield } from 'lucide-react'
+import Link from 'next/link'
 import AudioCover from '@/components/shop/AudioCover'
 
 type FormData = {
@@ -108,7 +109,7 @@ function CheckOption({
   )
 }
 
-export default function PersonalAudioSection() {
+export default function PersonalAudioSection({ showInfoLink = true }: { showInfoLink?: boolean }) {
   const [showForm, setShowForm] = useState(false)
   const [step, setStep] = useState(1)
   const [data, setData] = useState<FormData>(initialData)
@@ -419,6 +420,14 @@ export default function PersonalAudioSection() {
                 >
                   Mein persönliches Audio erstellen
                 </button>
+                {showInfoLink && (
+                  <Link
+                    href="/persoenliches-audio"
+                    className="text-sm text-primary font-semibold hover:text-primary-dark transition-colors"
+                  >
+                    Mehr erfahren →
+                  </Link>
+                )}
                 <div className="w-full bg-[#f9f9f9] rounded-xl px-4 py-3 text-xs text-gray-500 leading-relaxed">
                   <p className="font-semibold text-gray-700 mb-1">Einzelanfertigung – kein Widerrufsrecht</p>
                   <p>

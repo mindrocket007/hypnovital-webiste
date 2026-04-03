@@ -5,8 +5,8 @@ import type { Product } from '@/lib/data'
 import ProductCard from './ProductCard'
 
 function matchesShopCategory(p: Product, category: string): boolean {
-  if (category === 'alle') return p.isActive
-  if (category === 'audio-programme') return p.isActive && p.category !== 'Gutschein'
+  if (category === 'alle') return p.isActive && p.category !== 'E-Learning'
+  if (category === 'audio-programme') return p.isActive && p.category !== 'Gutschein' && p.category !== 'E-Learning'
   if (category === 'gutschein') return p.category === 'Gutschein'
   return false
 }

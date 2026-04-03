@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { Suspense } from 'react'
 import SectionWrapper from '@/components/ui/SectionWrapper'
 import ContactForm from '@/components/forms/ContactForm'
 import { Mail, Phone, MapPin, Linkedin } from 'lucide-react'
@@ -101,7 +102,9 @@ export default function KontaktPage() {
           {/* Formular */}
           <div className="lg:col-span-2">
             <h2 className="text-xl font-headline font-bold text-gray-900 mb-6">Nachricht senden</h2>
-            <ContactForm />
+            <Suspense fallback={null}>
+              <ContactForm />
+            </Suspense>
           </div>
         </div>
       </SectionWrapper>

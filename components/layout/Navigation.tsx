@@ -8,12 +8,16 @@ import clsx from 'clsx'
 
 const privatLinks = [
   { href: '/shop', label: 'Shop' },
+  { href: '/persoenliches-audio', label: 'Persönliches Audio' },
   { href: '/programme', label: 'Programme' },
   { href: '/veranstaltungen', label: 'Veranstaltungen' },
 ]
 
+const methodeLink = { href: '/methode', label: 'Die Methode' }
+
 const unternehmenLinks = [
   { href: '/unternehmen/firmenangebote', label: 'Firmenangebote' },
+  { href: '/academy', label: 'Academy' },
   { href: '/unternehmen/keynotes', label: 'Keynotes & Impulsvorträge' },
   { href: '/unternehmen/executive-coaching', label: 'Executive Coaching' },
 ]
@@ -22,6 +26,7 @@ const mainLinks = [
   { href: '/', label: 'Startseite' },
   { label: 'Privatpersonen', dropdown: privatLinks },
   { label: 'Unternehmen', dropdown: unternehmenLinks },
+  { href: '/methode', label: 'Die Methode' },
   { href: '/coach', label: 'Coach suchen' },
   { href: '/franchise', label: 'Franchise' },
   { href: '/blog', label: 'Blog' },
