@@ -1,10 +1,19 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { resend } from '@/lib/resend'
+import { checkSpam } from '@/lib/spam-protection'
 
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json()
     const { name, email, subject, message, company, phone, interest, funktion, city, country, franchiseRegion, deliveryMethod, standort, coachEmail, coachName } = body
+
+    // Spam-Schutz
+    const ip = req.headers.get('x-forwarded-for')?.split(',')[0]?.trim() || req.headers.get('x-real-ip') || 'unknown'
+    const spam = checkSpam(body, ip)
+    if (spam.blocked) {
+      // Stille Antwort – Bot denkt es hat geklappt
+      return NextResponse.json({ success: true })
+    }
 
     if (!name || !email) {
       return NextResponse.json({ error: 'Pflichtfelder fehlen' }, { status: 400 })

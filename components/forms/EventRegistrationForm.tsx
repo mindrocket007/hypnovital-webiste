@@ -38,6 +38,7 @@ export default function EventRegistrationForm({
     zip: '',
     city: '',
     agb: false,
+    website: '',
   })
 
   function formatDate(dateStr: string) {
@@ -133,6 +134,17 @@ export default function EventRegistrationForm({
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-4">
+        {/* Honeypot */}
+        <div className="absolute opacity-0 -z-10" aria-hidden="true" tabIndex={-1}>
+          <input
+            type="text"
+            name="website"
+            autoComplete="off"
+            tabIndex={-1}
+            value={form.website}
+            onChange={handleChange}
+          />
+        </div>
         {/* Name */}
         <div>
           <label className="block text-sm font-semibold text-gray-700 mb-1.5">Vor- und Nachname *</label>

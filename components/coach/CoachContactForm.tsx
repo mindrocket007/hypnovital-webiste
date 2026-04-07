@@ -8,7 +8,7 @@ interface Props {
 }
 
 export default function CoachContactForm({ coachEmail, coachName }: Props) {
-  const [form, setForm] = useState({ name: '', email: '', phone: '', message: '' })
+  const [form, setForm] = useState({ name: '', email: '', phone: '', message: '', website: '' })
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle')
 
   const firstName = coachName.split(' ')[0]
@@ -59,6 +59,17 @@ export default function CoachContactForm({ coachEmail, coachName }: Props) {
       </p>
 
       <form onSubmit={handleSubmit} className="space-y-3">
+        {/* Honeypot */}
+        <div className="absolute opacity-0 -z-10" aria-hidden="true" tabIndex={-1}>
+          <input
+            type="text"
+            name="website"
+            autoComplete="off"
+            tabIndex={-1}
+            value={form.website}
+            onChange={(e) => setForm({ ...form, website: e.target.value })}
+          />
+        </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           <input
             type="text"

@@ -38,6 +38,7 @@ export default function InquiryForm({
     deliveryMethod: '',
     standort: '',
     message: '',
+    website: '',
   })
 
   function handleChange(
@@ -72,6 +73,7 @@ export default function InquiryForm({
           deliveryMethod: '',
           standort: '',
           message: '',
+          website: '',
         })
       } else {
         setStatus('error')
@@ -100,6 +102,20 @@ export default function InquiryForm({
       <h3 className="font-headline font-bold text-xl text-gray-900 mb-6">{title}</h3>
 
       <form onSubmit={handleSubmit} className="space-y-5">
+
+        {/* Honeypot – unsichtbar für echte User */}
+        <div className="absolute opacity-0 -z-10" aria-hidden="true" tabIndex={-1}>
+          <label htmlFor="inquiry-website">Website</label>
+          <input
+            type="text"
+            id="inquiry-website"
+            name="website"
+            autoComplete="off"
+            tabIndex={-1}
+            value={form.website}
+            onChange={handleChange}
+          />
+        </div>
 
         {/* Name + Unternehmen */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">

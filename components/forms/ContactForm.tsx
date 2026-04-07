@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/Button'
 
 export default function ContactForm() {
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
-  const [form, setForm] = useState({ name: '', email: '', subject: '', message: '' })
+  const [form, setForm] = useState({ name: '', email: '', subject: '', message: '', website: '' })
   const searchParams = useSearchParams()
 
   useEffect(() => {
@@ -33,7 +33,7 @@ export default function ContactForm() {
 
       if (res.ok) {
         setStatus('success')
-        setForm({ name: '', email: '', subject: '', message: '' })
+        setForm({ name: '', email: '', subject: '', message: '', website: '' })
       } else {
         setStatus('error')
       }
@@ -58,6 +58,19 @@ export default function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-5">
+      {/* Honeypot – unsichtbar für echte User, Bots füllen es aus */}
+      <div className="absolute opacity-0 -z-10" aria-hidden="true" tabIndex={-1}>
+        <label htmlFor="website">Website</label>
+        <input
+          type="text"
+          id="website"
+          name="website"
+          autoComplete="off"
+          tabIndex={-1}
+          value={form.website}
+          onChange={handleChange}
+        />
+      </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
         <div>
           <label className="block text-sm font-semibold text-gray-700 mb-2">Name *</label>

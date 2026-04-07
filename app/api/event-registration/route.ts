@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { resend } from '@/lib/resend'
+import { checkSpam } from '@/lib/spam-protection'
 
 export async function POST(req: NextRequest) {
   try {
@@ -9,6 +10,13 @@ export async function POST(req: NextRequest) {
       eventTitle, eventDate, eventEndTime, eventVenue,
       eventDeliveryMethod, eventCity, eventCountry, eventType, eventPrice,
     } = body
+
+    // Spam-Schutz
+    const ip = req.headers.get('x-forwarded-for')?.split(',')[0]?.trim() || req.headers.get('x-real-ip') || 'unknown'
+    const spam = checkSpam(body, ip)
+    if (spam.blocked) {
+      return NextResponse.json({ success: true })
+    }
 
     if (!name || !email || !phone || !street || !zip || !city) {
       return NextResponse.json({ error: 'Pflichtfelder fehlen' }, { status: 400 })
