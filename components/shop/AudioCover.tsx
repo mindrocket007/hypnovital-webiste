@@ -34,6 +34,7 @@ const titleConfigs: Record<string, TitleConfig> = {
   'lehrfit':                { lines: ['Lehr-', 'Fit'],                   fontSize: 42, startY: 162 },
   'flugangst':              { lines: ['Mit Freude', 'fliegen'],              fontSize: 42, startY: 162 },
   'ceomind':                { lines: ['CEO-Mind'],                          fontSize: 48, startY: 185 },
+  'iron-mind':              { lines: ['Iron Mind'],                         fontSize: 48, startY: 185 },
   'persoenliches-audio':    { lines: ['Mein persönliches', 'Hypnose-Audio'], fontSize: 32, startY: 155 },
 }
 
@@ -398,6 +399,29 @@ function Visual({ productId }: { productId: string }) {
           {/* Glow ring */}
           <circle cx="0" cy="-5" r="55" fill="none" stroke="rgba(127,191,47,0.08)" strokeWidth="0.8"/>
           <circle cx="0" cy="-5" r="70" fill="none" stroke="rgba(127,191,47,0.04)" strokeWidth="0.5"/>
+        </g>
+      )
+
+    case 'iron-mind':
+      // Dumbbell / barbell – mental strength meets iron, lifting
+      return (
+        <g transform="translate(295, 305)">
+          {/* Bar */}
+          <rect x="-50" y="-4" width="100" height="8" rx="2" fill="#7FBF2F" opacity="0.85"/>
+          {/* Left weight stack */}
+          <rect x="-72" y="-22" width="10" height="44" rx="2" fill="#7FBF2F" opacity="0.85"/>
+          <rect x="-86" y="-32" width="12" height="64" rx="2" fill="#7FBF2F" opacity="0.55"/>
+          {/* Right weight stack */}
+          <rect x="62" y="-22" width="10" height="44" rx="2" fill="#7FBF2F" opacity="0.85"/>
+          <rect x="74" y="-32" width="12" height="64" rx="2" fill="#7FBF2F" opacity="0.55"/>
+          {/* Brain / mind dot above bar – mind controls iron */}
+          <circle cx="0" cy="-32" r="6" fill="#7FBF2F" opacity="0.9"/>
+          <circle cx="0" cy="-32" r="14" fill="none" stroke="#7FBF2F" strokeWidth="1" opacity="0.5"/>
+          {/* Connection line mind → bar */}
+          <line x1="0" y1="-26" x2="0" y2="-8" stroke="#7FBF2F" strokeWidth="1.2" opacity="0.6" strokeDasharray="2 3"/>
+          {/* Glow rings */}
+          <circle cx="0" cy="0" r="55" fill="none" stroke="rgba(127,191,47,0.1)" strokeWidth="1"/>
+          <circle cx="0" cy="0" r="78" fill="none" stroke="rgba(127,191,47,0.05)" strokeWidth="0.6"/>
         </g>
       )
 

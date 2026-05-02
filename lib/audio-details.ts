@@ -1296,6 +1296,82 @@ export const audioDetails: Record<string, AudioDetail> = {
       ],
     },
   },
+
+  'iron-mind': {
+    slug: 'iron-mind',
+    title: 'Iron Mind',
+    subtitle: 'Mentales Anabolika für Kraftsportler',
+    targetAudience: 'branche',
+    audienceLabel: 'Für Kraftsportler & Bodybuilder',
+    heroDescription:
+      'Verbinde Geist und Muskel zu einer einzigen Kraft. Trainiere mit der vollen Präsenz, die echtes Wachstum auslöst, brich deine Plateaus und werde stärker, ohne deinem Körper unnötige Risiken zuzumuten.',
+    problem: {
+      headline: 'Warum die meisten Kraftsportler ihr Potenzial nicht ausschöpfen',
+      description:
+        'Schweres Training allein reicht nicht. Wer den Muskel nicht spürt, während er ihn trainiert, lässt einen grossen Teil des möglichen Reizes ungenutzt. Plateaus, frustrierende Stagnation und der Griff zu fragwürdigen Mitteln sind oft die Folge eines mentalen Defizits, nicht eines körperlichen.',
+      stats: [
+        { value: '13–35%', label: 'Kraftzuwachs nachweisbar durch reine mentale Visualisierung (Yue & Cole, Ranganathan)' },
+        { value: '+22%', label: 'höhere Muskelaktivierung mit bewusster Mind-Muscle-Connection (Calatayud et al., 2016)' },
+        { value: '70%', label: 'aller Hobbysportler stagnieren nach 12-18 Monaten Training' },
+        { value: '8 von 10', label: 'Plateaus haben mentale, nicht körperliche Ursachen' },
+      ],
+      consequences: [
+        'Trainingsroutine wird mechanisch, der Reiz fürs Wachstum bleibt aus',
+        'Plateau-Frustration und der Gedanke, alles ausprobiert zu haben',
+        'Verleitung zu riskanten Substanzen und Shortcuts',
+        'Verletzungen durch unsaubere Technik unter Last',
+        'Verlust der Trainingsfreude trotz hartem Aufwand',
+      ],
+    },
+    solution: {
+      headline: 'Was diese Hypnose-MP3 bewirkt',
+      description:
+        'Iron Mind ist ein 47-minütiges Hypnose-Audio, das deine Verbindung zwischen Geist und Muskel auf der unbewussten Ebene neu programmiert. Wissenschaftlich belegt: Die Aktivierung von Muskelfasern hängt direkt von der mentalen Aufmerksamkeit ab, die du ihnen schenkst. Wer den Muskel im Geist findet, bevor er ihn bewegt, rekrutiert mehr Fasern, erzeugt mehr Reiz und löst messbar mehr Wachstum aus.',
+      topics: [
+        'Mind-Muscle-Connection vertiefen, jeden Muskel im Satz wirklich spüren',
+        'Pre-Workout-Aktivierung, mit Klarheit und Präsenz in den Trainingsraum gehen',
+        'Plateaus durchbrechen, neue Bestleistungen mental vorbereiten',
+        'Innere Härte aufbauen, eine Wiederholung mehr, wenn der Verstand schwach werden will',
+        'Identitätswechsel, sich als ein Mensch mit eisernem Geist erleben',
+        'Erholung respektieren, Wachstum geschieht in der Pause, nicht unter dem Gewicht',
+        'Saubere Form unter Last, Verletzungen vermeiden durch volle Körperwahrnehmung',
+      ],
+      goals: [
+        'Jeden Satz mit voller Präsenz und Mind-Muscle-Connection ausführen',
+        'Plateaus brechen, ohne zu fragwürdigen Substanzen zu greifen',
+        'Eine ruhige, stille Härte beim Training entwickeln',
+        'Konsequent dranbleiben, weil Identität stärker ist als Disziplin',
+      ],
+    },
+    studies: [
+      {
+        title: 'Mentales Training erzeugt messbaren Kraftzuwachs',
+        source: 'Ranganathan et al., 2004 – Neuropsychologia',
+        finding: 'Reine mentale Visualisierung von Muskelkontraktionen führte über 12 Wochen zu 13.5% Kraftzuwachs (Finger) und 35% Kraftzuwachs (Ellenbogenbeuger), ohne dass die Muskeln physisch trainiert wurden.',
+      },
+      {
+        title: 'Mind-Muscle-Connection erhöht die Muskelaktivierung',
+        source: 'Calatayud et al., 2016 – European Journal of Applied Physiology',
+        finding: 'Trainierende mit bewusster Aufmerksamkeitslenkung auf den Zielmuskel zeigten signifikant höhere EMG-Werte (bis zu 22% mehr Muskelaktivierung) als Trainierende mit reinem Bewegungsfokus.',
+      },
+      {
+        title: 'Hypnose verbessert sportliche Leistung',
+        source: 'Barker, Jones & Greenlees, 2013 – Journal of Applied Sport Psychology',
+        finding: 'Hypnotische Interventionen steigern Selbstwirksamkeit, Konzentration und objektiv messbare Leistung in Kraft- und Ausdauersportarten signifikant gegenüber Kontrollgruppen.',
+      },
+    ],
+    firmenBox: {
+      headline: 'Iron Mind für Studios und Trainerteams',
+      description:
+        'Bieten Sie Ihren Mitgliedern und Athleten ein evidenzbasiertes Tool zur Leistungssteigerung, das ohne riskante Substanzen auskommt. Ideal für Kraftsport-Studios, Personal Trainer und Sportvereine.',
+      benefits: [
+        'Mehr Trainingserfolge bei bestehender Mitgliedschaft',
+        'Differenzierung gegenüber Standardstudios',
+        'Wertvolle Ergänzung zu Trainings- und Ernährungsplänen',
+        'Klare Alternative zu fragwürdigen Substanzen im Studio',
+      ],
+    },
+  },
 }
 
 export function getAudioDetail(slug: string): AudioDetail | undefined {

@@ -373,6 +373,22 @@ export const products: Product[] = [
     isActive: true,
   },
   {
+    id: 'iron-mind',
+    slug: 'iron-mind',
+    title: 'Iron Mind – mentales Anabolika für Kraftsportler',
+    shortDescription:
+      'Verbinde Geist und Muskel zu einer einzigen Kraft. Vertiefe die Mind-Muscle-Connection, brich deine Plateaus und trainiere mit der vollen Präsenz, die echtes Wachstum auslöst.',
+    price: 2990,
+    currency: 'EUR',
+    priceFormatted: '29.90 €',
+    stripePriceId: process.env.STRIPE_PRICE_IRONMIND || 'price_1TSYIkBg1XYE0gv0fXbBsxje',
+    downloadFileKey: 'audio/iron-mind.mp3',
+    category: 'Leistung',
+    tags: ['kraftsport', 'bodybuilding', 'fitness', 'muskelaufbau', 'mind muscle connection', 'fokus', 'training', 'mentale stärke', 'audio'],
+    benefits: ['Mind-Muscle-Connection vertiefen', 'Plateaus durchbrechen', 'Training mit voller Präsenz'],
+    isActive: true,
+  },
+  {
     id: 'elearning-stressmanagement',
     slug: 'elearning-stressmanagement',
     title: 'E-Learning: Stressmanagement Grundlagen',

@@ -24,6 +24,7 @@ const PREVIEW_MAP: Record<string, string> = {
   lehrfit: '/audio/hoerprobe-lehrfit.mp3',
   ceomind: '/audio/hoerprobe-ceomind.mp3',
   flugangst: '/audio/hoerprobe-flugangst.mp3',
+  'iron-mind': '/audio/hoerprobe-iron-mind.mp3',
 }
 
 interface ProductCardProps {
